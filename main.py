@@ -1,6 +1,5 @@
 from io import BytesIO
 
-import google.generativeai as palm
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -16,10 +15,6 @@ from langchain_experimental.agents.agent_toolkits import create_csv_agent
 # -) delete unused Image library from PIL
 # -) delete unused sumy nlp, parserers, summarizers library
 # -) add langchain section as third analysis type (generate_response funciton, import langchain lib., and creating the ui)
-
-
-API_KEY = st.secrets["api"]
-palm.configure(api_key=API_KEY)
 
 
 def generate_graphic_statistic(data):
@@ -123,7 +118,7 @@ def get_tendency(value):
 def generate_response(question, csv_file):
     # Generates a response to a question using the CSV agent.
     agent = create_csv_agent(
-        GooglePalm(temperature=0.5, google_api_key=API_KEY),
+        GooglePalm(temperature=0.5, google_api_key=st.secrets["api"]),
         csv_file,
         agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     )
