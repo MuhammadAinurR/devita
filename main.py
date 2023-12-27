@@ -18,7 +18,7 @@ from langchain_experimental.agents.agent_toolkits import create_csv_agent
 # -) add langchain section as third analysis type (generate_response funciton, import langchain lib., and creating the ui)
 
 
-API_KEY = "AIzaSyD7eSg8_WIkx-URrLO0L9Fu6LYCL63Qh0Y"
+API_KEY = st.secrets["api"]
 palm.configure(api_key=API_KEY)
 
 
